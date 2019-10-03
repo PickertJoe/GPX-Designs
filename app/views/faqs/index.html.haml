@@ -1,5 +1,7 @@
-What kind of files can I upload?
-PLACEHOLDER
--@faqs.each do |f|
-  f.question
-  f.answer
+%h1 Frequently Asked Questions
+
+
+- @faqs.each do |f|
+  %b= f.question
+  %p= f.answer
+
