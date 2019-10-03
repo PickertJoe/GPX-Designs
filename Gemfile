@@ -61,3 +61,6 @@ gem 'devise'
 
 # Adding trestle for admin dashboard
 gem 'trestle'
+
+# Adding jquery
+gem 'jquery-rails'
