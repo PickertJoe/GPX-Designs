@@ -1,7 +1,6 @@
 class GpxesController < ApplicationController
   before_action :get_user
 
-
   def new
     @gpx = @user.gpx.build
   end
@@ -10,7 +9,7 @@ class GpxesController < ApplicationController
     @gpx = @user.gpx.build(gpx_params)
 
     if @gpx.save
-      root_path
+      redirect_to root_path
     else
       redirect_to new_user_gpx_path
 

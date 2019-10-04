@@ -23,7 +23,8 @@
           %span.navbar-toggler-icon
         #navbarText.collapse.navbar-collapse
           .nav-item-link=link_to "FAQ", faqs_path
-          .nav-item-link=link_to "Create"
+          - if user_signed_in?
+            .nav-item-link=link_to "Create", new_user_gpx_path(current_user)
         %span.navbar-text
         - if user_signed_in?
           Logged in as
