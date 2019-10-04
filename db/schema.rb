@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_160837) do
+ActiveRecord::Schema.define(version: 2019_10_04_163027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 2019_10_04_160837) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "elevations", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "faqs", force: :cascade do |t|
     t.string "question"
     t.text "answer"
@@ -55,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_10_04_160837) do
   end
 
   create_table "gpxes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.integer "activity"
+  end
+
+  create_table "lat_longs", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
