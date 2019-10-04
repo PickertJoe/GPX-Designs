@@ -1,20 +1,28 @@
 class GpxesController < ApplicationController
+  before_action :get_user
+
+
   def new
-    @gpx = Gpx.new
+    @gpx = @user.gpx.build
   end
 
   def create
-    @gpx = Gpx.new(gpx_params)
+    @gpx = @user.gpx.build(gpx_params)
 
-    if @gpx.save!
+    if @gpx.save
       root_path
     else
-      redirect_to new_gpx_path
+      redirect_to new_user_gpx_path
 
     end
   end
 
   def gpx_params
-    params.require(:gpx).permit(:name,:activity, :file)
+    params.require(:gpx).permit(:name,:activity, :file, :user_id)
   end
+
+  private
+    def get_user
+      @user = User.find(params[:user_id])
+    end
 end

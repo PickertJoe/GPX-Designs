@@ -1,6 +1,6 @@
 %h1 Upload your GPX file
 
-= form_with model: @gpx do |form|
+= form_for [@user, @gpx] do |form|
   = form.text_field :name
 
   = form.collection_radio_buttons :activity, Gpx.activities, :first, :first
