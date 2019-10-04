@@ -1,3 +1,4 @@
 class Gpx < ApplicationRecord
-  has_many_attached :files
+  has_one_attached :file
+  belongs_to :user
 end
