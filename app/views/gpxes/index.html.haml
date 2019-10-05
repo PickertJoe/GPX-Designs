@@ -1,0 +1,16 @@
+.container
+  %table
+    %tr
+      %th File name
+      %th Activity Type
+      %th Date uploaded
+      %th Last updated
+    - @gpxes.each do |g|
+      %tr
+        %td= g.name
+        %td= g.activity
+        %td= g.created_at
+        %td= g.updated_at
+        %td= link_to "Edit file", edit_user_gpx_path(@user, g)
+        %td= link_to "Delete", [@user, g], method: :delete
+
