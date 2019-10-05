@@ -1,8 +1,6 @@
-%h1 Upload your GPX file
+.container
+  %h1 Upload your GPX file
+  = render 'form'
 
-= form_with model:[@user, @gpx] do |form|
-  = form.text_field :name
-  = form.collection_radio_buttons :activity, Gpx.activities, :first, :first
-  = form.file_field :file, direct_upload: true
-  = form.submit
+
 

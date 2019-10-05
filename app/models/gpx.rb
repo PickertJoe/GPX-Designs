@@ -5,5 +5,5 @@ class Gpx < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :activity
 
-  enum activity: [:hike, :run, :bike, :swim, :ski, :snowboard]
+  enum activity: [:Hike, :Run, :Bike, :Swim, :Ski, :Snowboard]
 end
