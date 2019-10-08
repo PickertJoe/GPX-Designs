@@ -1,13 +1,18 @@
-%body
-  %script{:src => "https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js"}
-  %link{:href => "https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css", :rel => "stylesheet"}/
+%head
+  %script{:src => "https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js"}
+  %link{:href => "https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css", :rel => "stylesheet"}/
 
-  %h1 GPX Designs
 
-  %p Find me in app/views/welcome/index.html.erb
+  %body
+    %h1 GPX Designs
 
-  :javascript
-    L.mapbox.accessToken = 'pk.eyJ1IjoiZGlsYmVydDI1MCIsImEiOiJjazE2eG41N2cxMjVhM2NsYnFtYXBucWM0In0.qjQFUix7bPaSwLZ8IskknA';
-    var map = L.mapbox.map('map')
-    .setView([40, -74.50], 9)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+    %p Find me in app/views/welcome/index.html.erb
+    #map{:style => "width: 400px; height: 300px;"}
+    :javascript
+      mapboxgl.accessToken = 'pk.eyJ1IjoiZGlsYmVydDI1MCIsImEiOiJjazE2eG41N2cxMjVhM2NsYnFtYXBucWM0In0.qjQFUix7bPaSwLZ8IskknA';
+      var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v9'
+      });
+
+
