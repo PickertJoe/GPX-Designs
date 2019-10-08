@@ -2,7 +2,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiZGlsYmVydDI1MCIsImEiOiJjazE2eG41N2cxMjVhM2NsY
 
 var map = L.mapbox.map('map')
     .setView([38.89399, -77.03659], 17)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/outdoors-v9'));
 
 // Define circle options
 // http://leafletjs.com/reference.html#circle
