@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :gpx, dependent: :destroy
+  has_many :elevation,  through: :gpx
+  has_many :lat_long,  through: :gpx
 end
