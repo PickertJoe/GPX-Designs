@@ -7,12 +7,5 @@
     %h1 GPX Designs
 
     %p Find me in app/views/welcome/index.html.erb
-    #map{:style => "width: 400px; height: 300px;"}
-    :javascript
-      mapboxgl.accessToken = 'pk.eyJ1IjoiZGlsYmVydDI1MCIsImEiOiJjazE2eG41N2cxMjVhM2NsYnFtYXBucWM0In0.qjQFUix7bPaSwLZ8IskknA';
-      var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v9'
-      });
-
-
+    #map{:style => "width: 800px; height: 600px;"}
+    = javascript_include_tag "topo.js"
