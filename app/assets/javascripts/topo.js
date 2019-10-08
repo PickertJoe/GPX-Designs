@@ -40,3 +40,5 @@ color: '#000'
 // http://leafletjs.com/reference.html#polygon
 var polyline = L.polyline(line_points, polyline_options).addTo(map);
 
+// zoom the map to the polyline
+//map.fitBounds(polyline.getBounds());
