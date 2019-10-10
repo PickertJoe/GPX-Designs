@@ -30,7 +30,7 @@ var map = L.mapbox.map('map')
 // [38.893596444352134, -77.0349633693695]
 // ];
 
-var runLayer = omnivore.gpx('/assets/images/A_morning_stroll.gpx')
+var runLayer = omnivore.gpx(asset_path('A_morning_stroll.gpx'))
     .on('ready', function() {
         map.fitBounds(runLayer.getBounds());
     })
