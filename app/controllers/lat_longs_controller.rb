@@ -1,0 +1,2 @@
+class LatLongsController < ApplicationController
+end
