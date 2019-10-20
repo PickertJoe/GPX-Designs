@@ -30,8 +30,8 @@ class Elevation < ApplicationRecord
       elev_vector = Daru::Vector.new(elev_parse)
       time_vector = Daru::Vector.new(time_array)
 
-      # Combining vectors into Daru data frame
-      elevation = Daru::DataFrame.new({
+      # Combining vectors into Daru data frame for use in plotting
+      @elevation = Daru::DataFrame.new({
         Time: time_vector,
         Elevation: elev_vector
       })
