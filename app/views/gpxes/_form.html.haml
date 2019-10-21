@@ -1,7 +1,8 @@
 = form_with model: [@user, @gpx] do |form|
-  = form.label :name
+  = form.label :File_Name
   = form.text_field :name
   %br
+  = form.label :Activity_Type
   = form.collection_radio_buttons :activity, Gpx.activities, :first, :first
   %br
   = form.file_field :file, direct_upload: true

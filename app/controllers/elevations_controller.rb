@@ -11,10 +11,12 @@ class ElevationsController < ApplicationController
   def create
     @elevation = @gpx.elevation.build(elevation_params)
 
-    if @elevation.save
-      redirect_to user_gpxes_path(current_user)
-    else
-      redirect_to new_gpx_elevation_path
+    respond_to do |format|
+      if @elevation.save
+        format.html { redirect_to(@elevation) }
+      else
+        format.hmtl { render :new }
+      end
     end
   end
 

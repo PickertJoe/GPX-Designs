@@ -1,10 +1,14 @@
 = form_with model: [@gpx, @elevation] do |form|
+  = form.label :Chart_Title
   = form.text_field :chart_title
   %br
+  = form.label :X_Axis_Label
   = form.text_field :x_title
   %br
+  = form.label :Y_Axis_Label
   = form.text_field :y_title
   %br
+  = form.label :Choose_Portrait_Size
   = form.collection_radio_buttons :size, Elevation.sizes, :first, :first
   %br
   %br

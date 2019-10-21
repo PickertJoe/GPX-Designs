@@ -2,8 +2,9 @@ class Elevation < ApplicationRecord
   has_one_attached :file
   belongs_to :gpx
 
-  validates_presence_of :file
   validates_presence_of :chart_title
+  validates_presence_of :x_title
+  validates_presence_of :y_title
   validates_presence_of :gpx_id
 
   enum size: ['12"x16"', '18"x24"', '36"x48"']
@@ -31,7 +32,7 @@ class Elevation < ApplicationRecord
       time_vector = Daru::Vector.new(time_array)
 
       # Combining vectors into Daru data frame for use in plotting
-      @elevation = Daru::DataFrame.new({
+      @elev_df = Daru::DataFrame.new({
         Time: time_vector,
         Elevation: elev_vector
       })
