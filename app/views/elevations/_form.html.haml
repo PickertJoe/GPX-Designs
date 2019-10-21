@@ -1,11 +1,9 @@
-= form_with model: [@gpx, @elevation] do |form|
+= form_with model: @elevations do |form|
   = form.text_field :chart_title
   %br
   = form.text_field :x_title
   %br
   = form.text_field :y_title
-  %br
-  = form.collection_radio_buttons :gpx_id, Elevation.gpx_ids, :first, :first
   %br
   = form.collection_radio_buttons :size, Elevation.sizes, :first, :first
   %br

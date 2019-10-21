@@ -36,4 +36,6 @@ class Elevation < ApplicationRecord
         Elevation: elev_vector
       })
 
+    end
+
 end
