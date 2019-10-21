@@ -1,4 +1,4 @@
-= form_with model: @elevations do |form|
+= form_for (@gpx, @elevation) do |form|
   = form.text_field :chart_title
   %br
   = form.text_field :x_title
