@@ -12,5 +12,5 @@
         %td= g.created_at
         %td= g.updated_at
         %td= link_to "Edit file", edit_gpx_path(@user, g)
-        %td= link_to "Delete", user_gpxes_path(@user, g), method: :delete
+        %td= link_to "Delete", gpx_path(g), method: :delete
 

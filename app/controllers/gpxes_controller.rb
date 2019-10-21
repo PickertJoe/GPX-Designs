@@ -1,6 +1,6 @@
 class GpxesController < ApplicationController
   before_action :set_user, only: [:index, :new]
-  #before_action :set_gpx, only: [:show, :edit, :update, :destroy]
+  before_action :set_gpx, only: [:show, :edit, :update, :destroy]
 
   def index
     @gpxes = @user.gpx
@@ -27,7 +27,7 @@ class GpxesController < ApplicationController
   def update
     @gpx.update(gpx_params)
     if @gpx.save
-      redirect_to user_gpxes_path
+      redirect_to user_gpxes_path(current_user)
     else
       redirect_to edit_gpx_path
     end
@@ -35,7 +35,7 @@ class GpxesController < ApplicationController
 
   def destroy
     @gpx.destroy
-    redirect_to user_gpxes_path, notice: "Your gpx file has been successfully deleted."
+    redirect_to user_gpxes_path(current_user), notice: "Your gpx file has been successfully deleted."
   end
 
   private
@@ -44,7 +44,7 @@ class GpxesController < ApplicationController
     end
 
     def set_gpx
-      @gpx = @user.gpx.find(params[:id])
+      @gpx = Gpx.find(params[:id])
     end
 
     def gpx_params
