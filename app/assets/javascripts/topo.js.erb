@@ -3,6 +3,12 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiZGlsYmVydDI1MCIsImEiOiJjazE2eG41N2cxMjVhM2NsY
 var map = L.mapbox.map('map')
     .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/outdoors-v9'));
 
+var runLayer = omnivore.gpx("<%= asset_path('A_morning_stroll.gpx') %>")
+    .on('ready', function() {
+        map.fitBounds(runLayer.getBounds());
+    })
+    .addTo(map);
+
 
 // This code block will add a smiley face near the National Mall in Washington D.C.
 // Define circle options
@@ -29,12 +35,6 @@ var map = L.mapbox.map('map')
 // [38.89340438498248, -77.03514575958252],
 // [38.893596444352134, -77.0349633693695]
 // ];
-
-var runLayer = omnivore.gpx("<%= asset_path('A_morning_stroll.gpx') %>")
-    .on('ready', function() {
-        map.fitBounds(runLayer.getBounds());
-    })
-    .addTo(map);
 
 // Define polyline options
 // http://leafletjs.com/reference.html#polyline

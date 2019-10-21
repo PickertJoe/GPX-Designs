@@ -1,0 +1,13 @@
+= form_with model: [@gpx, @elevation] do |form|
+  = form.text_field :chart_title
+  %br
+  = form.text_field :x_title
+  %br
+  = form.text_field :y_title
+  %br
+  = form.collection_radio_buttons :activity, Gpx.activities, :first, :first
+  %br
+  = form.file_field :file, direct_upload: true
+  %br
+  %br
+  = form.submit
