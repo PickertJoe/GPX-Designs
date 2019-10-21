@@ -1,10 +1,13 @@
 class ElevationsController < ApplicationController
+  before_action :set_gpx
+
+
   def new
-    @elevation = @gpx.elevation.build
+    @elevation = @elevation.gpx.build
   end
 
   def create
-    @elevation = @gpx.elevation.build(elevation_params)
+    @elevation = @elevation.gpx.build(elevation_params)
 
     if @gpx.save
       redirect_to user_gpxes_path

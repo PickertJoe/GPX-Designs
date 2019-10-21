@@ -28,7 +28,7 @@ class GpxesController < ApplicationController
     if @gpx.save
       redirect_to user_gpxes_path
     else
-      redirect_to edit_user_gpx_path
+      redirect_to edit_gpx_path
     end
   end
 

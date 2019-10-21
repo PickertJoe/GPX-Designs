@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
-    resources :gpxes
+    resources :gpxes, shallow: true
   end
+
+  resources :gpxes, only: [:show, :edit, :update, :destroy]
 
   resources :elevations
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
