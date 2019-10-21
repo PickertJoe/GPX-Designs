@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   resources :faqs, only: [:index]
 
   devise_for :users
-  resources :users do
-    resources :gpxes, shallow: true
+  resources :users, shallow: true do
+    resources :gpxes do
+      resources :elevations
+      resources :lat_longs
+    end
   end
 
-  resources :gpxes, only: [:show, :edit, :update, :destroy]
 
-  resources :elevations
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

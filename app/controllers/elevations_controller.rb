@@ -9,7 +9,7 @@ class ElevationsController < ApplicationController
   def create
     @elevation = @elevation.gpx.build(elevation_params)
 
-    if @gpx.save
+    if @elevation.save
       redirect_to user_gpxes_path
     else
       redirect_to new_user_gpx_path
