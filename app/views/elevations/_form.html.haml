@@ -5,9 +5,9 @@
   %br
   = form.text_field :y_title
   %br
-  = form.collection_radio_buttons :activity, Gpx.activities, :first, :first
+  = form.collection_radio_buttons :gpx_id, Elevation.gpx_ids, :first, :first
   %br
-  = form.file_field :file, direct_upload: true
+  = form.collection_radio_buttons :size, Elevation.sizes, :first, :first
   %br
   %br
   = form.submit
