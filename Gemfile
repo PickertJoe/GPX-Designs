@@ -68,3 +68,6 @@ gem 'jquery-rails'
 
 # Adding daru-view for highcharts visualization
 gem 'daru-view'
+
+# Adding lazy high charts
+gem 'lazy_high_charts'
