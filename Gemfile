@@ -73,3 +73,5 @@ gem 'jquery-rails'
 gem 'daru-view'
 
 gem 'chartkick'
+
+gem 'nokogiri'
