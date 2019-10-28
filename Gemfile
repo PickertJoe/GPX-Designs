@@ -71,3 +71,6 @@ gem 'daru-view'
 
 # Adding lazy high charts
 gem 'lazy_high_charts'
+
+# Adding highcharts rails
+gem 'highcharts-rails'
