@@ -63,14 +63,13 @@ gem 'devise'
 gem 'trestle'
 gem 'trestle-auth'
 
+# Adding daru
+gem 'daru'
+
 # Adding jquery
 gem 'jquery-rails'
 
 # Adding daru-view for highcharts visualization
 gem 'daru-view'
 
-# Adding lazy high charts
-gem 'lazy_high_charts'
-
-# Adding highcharts rails
-gem 'highcharts-rails'
+gem 'chartkick'
