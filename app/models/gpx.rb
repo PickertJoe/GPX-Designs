@@ -12,7 +12,6 @@ class Gpx < ApplicationRecord
 
   def parse
 
-    #raw_file = self.file.download
     doc = Nokogiri::XML(open(ActiveStorage::Blob.service.send(:path_for, file.key)))
     elev_parse = []
     time_array = []
