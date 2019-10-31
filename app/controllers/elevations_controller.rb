@@ -1,6 +1,6 @@
 class ElevationsController < ApplicationController
-  before_action :set_gpx, only: [:index, :new, :create]
-  before_action :set_elevation, only: [:show, :edit, :update, :destroy]
+  before_action :set_gpx, only: [:index, :new, :create, :show]
+  before_action :set_elevation, only: [:edit, :update, :destroy]
 
   def new
     @elevation = @gpx.elevation.build
@@ -24,7 +24,7 @@ class ElevationsController < ApplicationController
 
   def show
     @elevation = Elevation.find(params[:id])
-    @gpx = @gpx
+    @data = Gpx.parse
   end
 
   def edit
