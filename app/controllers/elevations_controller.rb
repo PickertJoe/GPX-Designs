@@ -2,10 +2,12 @@ class ElevationsController < ApplicationController
   before_action :set_gpx, only: [:index, :new, :create]
   before_action :set_elevation, only: [:show, :edit, :update, :destroy]
 
-
-
   def new
     @elevation = @gpx.elevation.build
+  end
+
+  def index
+    @elevations = @gpx.elevation
   end
 
   def create
@@ -13,11 +15,16 @@ class ElevationsController < ApplicationController
 
     respond_to do |format|
       if @elevation.save
-        format.html { redirect_to(@elevation) }
+        format.html { redirect_to gpx_elevations_path }
       else
         format.hmtl { render :new }
       end
     end
+  end
+
+  def show
+    @elevation = Elevation.find(params[:id])
+    @gpx = @gpx
   end
 
   def edit
