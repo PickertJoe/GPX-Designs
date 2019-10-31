@@ -1,3 +1,6 @@
+require 'Daru'
+require 'Nokogiri'
+
 class Gpx < ApplicationRecord
   has_one_attached :file
   belongs_to :user
@@ -10,9 +13,10 @@ class Gpx < ApplicationRecord
   enum activity: [:Hike, :Run, :Bike, :Swim, :Ski, :Snowboard]
 
 
-  def self.parse
+  def parse
 
-    raw_file = Nokogiri::XML(open(url_for(gpx.file)))
+    raw_file = self.file.download
+    opened_file = Nokogiri::XML(open(raw_file))
     elev_parse = []
     time_array = []
 
