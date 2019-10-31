@@ -1,6 +1,3 @@
-require 'Daru'
-require 'Nokogiri'
-
 class Gpx < ApplicationRecord
   has_one_attached :file
   belongs_to :user
@@ -15,8 +12,8 @@ class Gpx < ApplicationRecord
 
   def parse
 
-    raw_file = self.file.download
-    opened_file = Nokogiri::XML(open(raw_file))
+    #raw_file = self.file.download
+    doc = Nokogiri::XML(open(ActiveStorage::Blob.service.send(:path_for, file.key)))
     elev_parse = []
     time_array = []
 
