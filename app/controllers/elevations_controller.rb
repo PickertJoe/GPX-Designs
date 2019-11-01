@@ -1,5 +1,5 @@
 class ElevationsController < ApplicationController
-  before_action :set_gpx, only: [:index, :new, :create, :show]
+  before_action :set_gpx, only: [:index, :new, :create]
   before_action :set_elevation, only: [:edit, :update, :destroy]
 
   def new
@@ -15,6 +15,7 @@ class ElevationsController < ApplicationController
 
     respond_to do |format|
       if @elevation.save
+        @elevation.data.attach(@gpx.file.blob)
         format.html { redirect_to gpx_elevations_path }
       else
         format.hmtl { render :new }
@@ -24,7 +25,7 @@ class ElevationsController < ApplicationController
 
   def show
     @elevation = Elevation.find(params[:id])
-    @data = Gpx.parse
+    #@data = @gpx.parse
   end
 
   def edit
@@ -46,7 +47,7 @@ class ElevationsController < ApplicationController
 
   private
     def elevation_params
-      params.require(:elevation).permit(:chart_title,:x_title, :y_title, :gpx_id, :size)
+      params.require(:elevation).permit(:chart_title,:x_title, :y_title, :gpx_id, :size, :data)
     end
 
     def set_gpx

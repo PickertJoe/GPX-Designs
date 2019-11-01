@@ -1,5 +1,6 @@
 class Elevation < ApplicationRecord
-  has_one_attached :file
+  has_one_attached :data
+  has_one_attached :figure
   belongs_to :gpx
 
   validates_presence_of :chart_title
