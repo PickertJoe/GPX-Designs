@@ -26,16 +26,15 @@ class Elevation < ApplicationRecord
       time_array << Time.parse(link.text, "DD.MM.YYYY hh:mm:ss").to_i*1000
     end
 
-    # Casting arrays as Daru vectors
-    # elev_vector = Daru::Vector.new(elev_parse)
-    # time_vector = Daru::Vector.new(time_array)
+    Casting arrays as Daru vectors
+    elev_vector = Daru::Vector.new(elev_parse)
+    time_vector = Daru::Vector.new(time_array)
 
     # Combining vectors into Daru data frame for use in plotting
     @elev_df = Daru::DataFrame.new({
-      Time: time_array,
-      Elevation: elev_parse,
+      Time: time_vector,
+      Elevation: elev_vector,
     },
       order: [:Time, :Elevation])
-
   end
 end

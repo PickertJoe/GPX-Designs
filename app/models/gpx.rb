@@ -33,9 +33,8 @@ class Gpx < ApplicationRecord
     # Combining vectors into Daru data frame for use in plotting
     @elev_df = Daru::DataFrame.new({
       Time: time_vector,
-      Elevation: elev_vector
-    })
-
+      Elevation: elev_vector,
+    },
+      order: [:Time, :Elevation])
   end
-
 end
