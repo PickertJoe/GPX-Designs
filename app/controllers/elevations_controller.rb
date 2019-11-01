@@ -25,7 +25,7 @@ class ElevationsController < ApplicationController
 
   def show
     @elevation = Elevation.find(params[:id])
-    #@data = @gpx.parse
+    @data = @elevation.parse
   end
 
   def edit
