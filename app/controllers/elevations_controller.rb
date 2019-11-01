@@ -24,8 +24,34 @@ class ElevationsController < ApplicationController
   end
 
   def show
+    Daru::View.plotting_library = :highcharts
     @elevation = Elevation.find(params[:id])
     @data = @elevation.parse
+
+    @opts = {
+      chart: {defaultSeriesType: 'line'},
+      title: {
+        text: @elevation.chart_title
+        },
+
+      xAxis: {
+        title:{
+          text: @elevation.x_title
+        }
+      },
+
+      yAxis: {
+        title: {
+          text: @elevation.y_title
+        }
+      }
+
+    }
+
+    # series_dt = @elevation.parse
+
+
+    # @elev_graph = Daru::View::Plot.new(series_dt, opts)
   end
 
   def edit
