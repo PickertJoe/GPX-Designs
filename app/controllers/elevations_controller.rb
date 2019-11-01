@@ -29,7 +29,8 @@ class ElevationsController < ApplicationController
     @data = @elevation.parse
 
     @opts = {
-      chart: {defaultSeriesType: 'line'},
+      chart: {
+        defaultSeriesType: 'line'},
       title: {
         text: @elevation.chart_title
         },
@@ -37,21 +38,17 @@ class ElevationsController < ApplicationController
       xAxis: {
         title:{
           text: @elevation.x_title
-        }
+        },
+        type: 'datetime'
       },
 
       yAxis: {
         title: {
           text: @elevation.y_title
         }
-      }
-
+      },
     }
-
-    # series_dt = @elevation.parse
-
-
-    # @elev_graph = Daru::View::Plot.new(series_dt, opts)
+    @line_graph = Daru::View::Plot.new(data= @data, @opts)
   end
 
   def edit

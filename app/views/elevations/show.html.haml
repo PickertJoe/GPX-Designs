@@ -1,2 +1,5 @@
 
-= daru_chart(@data, type: :line, adapter: :highcharts)
+= daru_chart(@data, @opts)
+/ .p
+/   Data:
+/   =raw @line_graph.chart.series_data
