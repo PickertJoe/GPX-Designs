@@ -16,7 +16,7 @@ class LatLongsController < ApplicationController
     respond_to do |format|
       if @lat_long.save
         @lat_long.data.attach(@gpx.file.blob)
-        format.html { redirect_to gpx_lat_longs_path }
+        format.html { redirect_to lat_long_path(@lat_long) }
       else
         flash.now[:alert] = "Could not create new topographic map"
         format.html { render :new }

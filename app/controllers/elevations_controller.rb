@@ -16,7 +16,7 @@ class ElevationsController < ApplicationController
     respond_to do |format|
       if @elevation.save
         @elevation.data.attach(@gpx.file.blob)
-        format.html { redirect_to gpx_elevations_path }
+        format.html { redirect_to @elevation }
       else
         flash.now[:alert] = "Could not create new elevation profile."
         format.hmtl { render :new }
