@@ -26,7 +26,7 @@ class Elevation < ApplicationRecord
       time_array << Time.parse(link.text, "DD.MM.YYYY hh:mm:ss").to_i*1000
     end
 
-    Casting arrays as Daru vectors
+    # Casting arrays as Daru vectors
     elev_vector = Daru::Vector.new(elev_parse)
     time_vector = Daru::Vector.new(time_array)
 
