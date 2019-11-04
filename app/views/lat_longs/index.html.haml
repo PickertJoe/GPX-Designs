@@ -1,0 +1,21 @@
+.container
+  %h1.text-center Topographic maps for #{@gpx.name}
+  %table
+    %tr
+      %th Map name
+      %th Size
+      %th Date uploaded
+      %th Last updated
+    - @lat_longs.each do |g|
+      %tr
+        %td= g.chart_title
+        %td= g.size
+        %td= g.created_at
+        %td= g.updated_at
+        %td= link_to "See visualiziation", lat_long_path(g)
+        %td= link_to "Edit file", edit_lat_long_path(@gpx, g)
+        %td= link_to "Delete", lat_long_path(g), method: :delete
+
+  %br
+  =link_to "GPX File Index", user_gpxes_path(@gpx.user_id)
+

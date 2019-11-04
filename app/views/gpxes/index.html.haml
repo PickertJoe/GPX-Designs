@@ -1,4 +1,5 @@
 .container
+  %h1.text-center GPX files for #{@user.email}
   %table
     %tr
       %th File name
@@ -12,7 +13,8 @@
         %td= g.created_at
         %td= g.updated_at
         %td= link_to "New visualiziation", new_gpx_elevation_path(g)
-        %td= link_to "See visualiziations", gpx_elevations_path(g)
+        %td= link_to "See topographic maps", gpx_lat_longs_path(g)
+        %td= link_to "See elevation profiles", gpx_elevations_path(g)
         %td= link_to "Edit file", edit_gpx_path(@user, g)
         %td= link_to "Delete", gpx_path(@user, g), method: :delete
 

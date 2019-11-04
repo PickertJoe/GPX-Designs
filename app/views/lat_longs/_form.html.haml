@@ -1,0 +1,9 @@
+= form_with model: [@gpx, @lat_long] do |form|
+  = form.label :Chart_Title
+  = form.text_field :chart_title
+  %br
+  = form.label :Choose_Portrait_Size
+  = form.collection_radio_buttons :size, Elevation.sizes, :first, :first
+  %br
+  %br
+  = form.submit
