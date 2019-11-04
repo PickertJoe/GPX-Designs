@@ -1,6 +1,6 @@
 class ElevationsController < ApplicationController
   before_action :set_gpx, only: [:index, :new, :create]
-  before_action :set_elevation, only: [:edit, :update, :destroy]
+  before_action :set_elevation, only: [:show, :edit, :update, :destroy]
 
   def new
     @elevation = @gpx.elevation.build
@@ -25,30 +25,8 @@ class ElevationsController < ApplicationController
 
   def show
     Daru::View.plotting_library = :highcharts
-    @elevation = Elevation.find(params[:id])
     @data = @elevation.parse
-
-    @opts = {
-      chart: {
-        defaultSeriesType: 'line'},
-      title: {
-        text: @elevation.chart_title
-        },
-
-      xAxis: {
-        title:{
-          text: @elevation.x_title
-        },
-        type: 'datetime'
-      },
-
-      yAxis: {
-        title: {
-          text: @elevation.y_title
-        }
-      },
-    }
-    @line_graph = Daru::View::Plot.new(data= @data, @opts)
+    @opts = @elevation.options
   end
 
   def edit

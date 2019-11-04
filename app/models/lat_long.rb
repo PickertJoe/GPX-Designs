@@ -1,5 +1,5 @@
 class LatLong < ApplicationRecord
-  has_one_attached :file
+  has_one_attached :data
   belongs_to :gpx
 
   validates_presence_of :file

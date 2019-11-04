@@ -12,6 +12,6 @@
         %td= g.created_at
         %td= g.updated_at
         %td= link_to "See visualiziation", elevation_path(g)
-        %td= link_to "Edit file", edit_gpx_path(@user, g)
-        %td= link_to "Delete", gpx_path(g), method: :delete
+        %td= link_to "Edit file", edit_elevation_path(@gpx, g)
+        %td= link_to "Delete", elevation_path(g), method: :delete
 

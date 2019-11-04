@@ -37,4 +37,28 @@ class Elevation < ApplicationRecord
     },
       order: [:Time, :Elevation])
   end
+
+  def options
+
+    @opts = {
+        chart: {
+          defaultSeriesType: 'line'},
+        title: {
+          text: self.chart_title
+          },
+
+        xAxis: {
+          title:{
+            text: self.x_title
+          },
+          type: 'datetime'
+        },
+
+        yAxis: {
+          title: {
+            text: self.y_title
+          }
+        },
+      }
+    end
 end
