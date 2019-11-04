@@ -36,7 +36,7 @@ class ElevationsController < ApplicationController
   def update
     respond_to do |format|
       if @elevation.update(elevation_params)
-        format.html { redirect_to gpx_elevations_path }
+        format.html { redirect_back fallback_location: root_path }
       else
         flash.now[:alert] = "Could not create elevation profile"
         format.html { render :edit }

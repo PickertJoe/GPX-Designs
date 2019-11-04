@@ -33,7 +33,7 @@ class LatLongsController < ApplicationController
   def update
     respond_to do |format|
       if @lat_long.update(lat_long_params)
-        format.html { redirect_to gpx_lat_longs_path }
+        format.html { redirect_back fallback_location: root_path }
       else
         flash.now[:alert] = "Could not update topographic map file"
         format.html { render :edit }

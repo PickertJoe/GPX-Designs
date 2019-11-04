@@ -29,7 +29,7 @@ class GpxesController < ApplicationController
   def update
     respond_to do |format|
       if @gpx.update(gpx_params)
-        format.html { redirect_to user_gpxes_path(current_user), notice: "Your file was successfully updated." }
+        format.html { redirect_to user_gpxes_path(current_user) }
       else
         flash.now[:alert] = "Could not create new GPX file"
         format.html { render :edit }
