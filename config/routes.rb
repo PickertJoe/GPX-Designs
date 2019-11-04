@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, shallow: true do
-    resources :gpxes do
+    resources :gpxes, shallow: true do
       resources :elevations
       resources :lat_longs
     end

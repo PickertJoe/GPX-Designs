@@ -18,6 +18,7 @@ class ElevationsController < ApplicationController
         @elevation.data.attach(@gpx.file.blob)
         format.html { redirect_to gpx_elevations_path }
       else
+        flash.now[:alert] = "Could not create new elevation profile."
         format.hmtl { render :new }
       end
     end
@@ -33,11 +34,13 @@ class ElevationsController < ApplicationController
   end
 
   def update
-    @elevation.update(elevation_params)
-    if @elevation.save
-      redirect_to user_gpxes_path(current_user)
-    else
-      redirect_to edit_elevation_path
+    respond_to do |format|
+      if @elevation.update(elevation_params)
+        format.html { redirect_to gpx_elevations_path }
+      else
+        flash.now[:alert] = "Could not create elevation profile"
+        format.html { render :edit }
+      end
     end
   end
 

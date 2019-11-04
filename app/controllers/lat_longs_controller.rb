@@ -18,6 +18,7 @@ class LatLongsController < ApplicationController
         @lat_long.data.attach(@gpx.file.blob)
         format.html { redirect_to gpx_lat_longs_path }
       else
+        flash.now[:alert] = "Could not create new topographic map"
         format.html { render :new }
       end
     end
@@ -30,6 +31,14 @@ class LatLongsController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @lat_long.update(lat_long_params)
+        format.html { redirect_to gpx_lat_longs_path }
+      else
+        flash.now[:alert] = "Could not update topographic map file"
+        format.html { render :edit }
+        end
+      end
   end
 
   def destroy
