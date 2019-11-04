@@ -43,7 +43,7 @@ class ElevationsController < ApplicationController
 
   def destroy
     @elevation.destroy
-    redirect_to user_gpxes_path(current_user), notice: "Your gpx file has been successfully deleted."
+    redirect_to gpx_elevations_path(@elevation.gpx_id), notice: "Your elevation profile has been successfully deleted."
   end
 
   private
