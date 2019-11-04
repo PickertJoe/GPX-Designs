@@ -14,6 +14,9 @@
         %td= g.updated_at
         %td= link_to "Topographic maps", gpx_lat_longs_path(g)
         %td= link_to "Elevation profiles", gpx_elevations_path(g)
-        %td= link_to "Edit file", edit_gpx_path(@user, g)
-        %td= link_to "Delete", gpx_path(@user, g), method: :delete
+        %td= link_to "Edit file", edit_gpx_path(g)
+        %td= link_to "Delete", gpx_path(g), method: :delete
+
+  %br
+  =link_to "Create New", new_user_gpx_path
 

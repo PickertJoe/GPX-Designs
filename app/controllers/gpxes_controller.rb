@@ -16,19 +16,24 @@ class GpxesController < ApplicationController
   def create
     @gpx = @user.gpx.build(gpx_params)
 
-    if @gpx.save
-      redirect_to user_gpxes_path
-    else
-      redirect_to new_user_gpx_path
+    respond_to do |format|
+      if @gpx.save
+        format.html { redirect_to user_gpxes_path }
+      else
+        flash.now[:alert] = "Could not create new GPX file"
+        format.html { render :new }
+      end
     end
   end
 
   def update
-    @gpx.update(gpx_params)
-    if @gpx.save
-      redirect_to user_gpxes_path(current_user)
-    else
-      redirect_to edit_gpx_path
+    respond_to do |format|
+      if @gpx.update(gpx_params)
+        format.html { redirect_to user_gpxes_path(current_user), notice: "Your file was successfully updated." }
+      else
+        flash.now[:alert] = "Could not create new GPX file"
+        format.html { render :edit }
+      end
     end
   end
 
