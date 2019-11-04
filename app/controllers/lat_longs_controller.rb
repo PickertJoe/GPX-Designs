@@ -7,7 +7,7 @@ class LatLongsController < ApplicationController
   end
 
   def index
-    @lat_longs = @gpx.lat_longs
+    @lat_longs = @gpx.lat_long
   end
 
   def create
@@ -18,7 +18,7 @@ class LatLongsController < ApplicationController
         @lat_long.data.attach(@gpx.file.blob)
         format.html { redirect_to gpx_lat_longs_path }
       else
-        format.html { redner :new }
+        format.html { render :new }
       end
     end
   end
@@ -37,12 +37,15 @@ class LatLongsController < ApplicationController
 
   private
    def lat_long_params
+    params.require(:lat_long).permit(:chart_title, :size, :gpx_id, :data)
    end
 
    def set_gpx
+    @gpx = Gpx.find(params[:gpx_id])
    end
 
    def set_lat_long
+    @lat_long = LatLong.find(params[:id])
    end
 
 end

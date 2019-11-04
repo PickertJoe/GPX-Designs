@@ -17,5 +17,7 @@
         %td= link_to "Delete", lat_long_path(g), method: :delete
 
   %br
+  =link_to "Create New", new_gpx_lat_long_path
+  %br
   =link_to "GPX File Index", user_gpxes_path(@gpx.user_id)
 
