@@ -59,6 +59,10 @@ class Elevation < ApplicationRecord
             text: self.y_title
           }
         },
+
+        legend:{
+          enabled: false
+        },
       }
     end
 end
