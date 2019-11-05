@@ -25,6 +25,7 @@ class LatLongsController < ApplicationController
   end
 
   def show
+    @file_path = url_for(@lat_long.data)
   end
 
   def edit
