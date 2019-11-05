@@ -1,4 +1,4 @@
-= form_with model: [@user, @gpx] do |form|
+= form_with model: [@user, @gpx], local:true do |form|
   = form.label :File_Name
   = form.text_field :name
   %br

@@ -13,7 +13,7 @@
         %td= g.created_at
         %td= g.updated_at
         %td= link_to "See visualiziation", lat_long_path(g)
-        %td= link_to "Edit file", edit_lat_long_path(@gpx, g)
+        %td= link_to "Edit file", edit_lat_long_path(g)
         %td= link_to "Delete", lat_long_path(g), method: :delete
 
   %br

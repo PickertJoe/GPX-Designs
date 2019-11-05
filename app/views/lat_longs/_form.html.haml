@@ -1,4 +1,4 @@
-= form_with model: [@gpx, @lat_long] do |form|
+= form_with model: [@gpx, @lat_long], local:true do |form|
   = form.label :Chart_Title
   = form.text_field :chart_title
   %br
