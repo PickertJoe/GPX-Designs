@@ -7,7 +7,7 @@ class LatLong < ApplicationRecord
 
   enum size: [:small, :medium, :large]
 
-  def data_path
-    @path = ActiveStorage::Blob.service.send(:path_for, data.key)
+  def download
+    @file = rails_blob_path(self.data, disposition: "attachment")
   end
 end

@@ -25,9 +25,9 @@ class LatLongsController < ApplicationController
   end
 
   def show
-    @file_path = @lat_long.data_path
-    @test = 5
+    gon.data = url_for(@lat_long.data)
   end
+
 
   def edit
   end

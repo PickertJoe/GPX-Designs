@@ -12,7 +12,7 @@
     = javascript_include_tag :jquery, :jquery_ujs
     = csrf_meta_tags
     = csp_meta_tag
-    = include_gon
+    = Gon::Base.render_data
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     =raw Daru::View.dependent_script(:highcharts)
@@ -20,7 +20,7 @@
 
     %title GPXDesigns
 
-    %body
+    %body{:class => "#{controller_name} #{action_name}"}
       %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         .navbar-link-item=link_to "GPX Designs", root_path
         %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
