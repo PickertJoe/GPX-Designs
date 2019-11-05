@@ -6,4 +6,8 @@ class LatLong < ApplicationRecord
   validates_presence_of :gpx_id
 
   enum size: [:small, :medium, :large]
+
+  def data_path
+    @path = ActiveStorage::Blob.service.send(:path_for, data.key)
+  end
 end

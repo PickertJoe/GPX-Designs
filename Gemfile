@@ -76,3 +76,4 @@ gem 'chartkick'
 
 gem 'nokogiri'
 
+gem 'gon'
