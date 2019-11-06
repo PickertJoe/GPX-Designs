@@ -1,4 +1,4 @@
-%h1.text-center Elevation profile
+%h1.text-center Elevation profile for #{@elevation.chart_title}
 =link_to "#{@elevation.chart_title} Index", gpx_elevations_path(@elevation.gpx_id)
 = daru_chart(@data, @opts)
 =link_to "Back", :back
