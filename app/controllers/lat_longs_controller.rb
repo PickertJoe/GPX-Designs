@@ -25,7 +25,7 @@ class LatLongsController < ApplicationController
   end
 
   def show
-    gon.data = url_for(@lat_long.data)
+    gon.data = url_for(@lat_long.gpx.file)
   end
 
 
